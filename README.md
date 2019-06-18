@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/github/license/myTerminal/chrome-extension-helper.svg)](https://opensource.org/licenses/MIT)  
 [![NPM](https://nodei.co/npm/chrome-extension-helper.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/chrome-extension-helper/)
 
-A library of constructs for Google Chrome extensions [in-progress]
+A library of constructs for Google Chrome extensions
 
 ## Wrappers
 
@@ -21,7 +21,7 @@ A library of constructs for Google Chrome extensions [in-progress]
 
 ### Directly from a web page
 
-One can use *chrome-extension-helper* directly from a web-page by a attaching script file to the DOM.
+One can use *chrome-extension-helper* directly from a web-page by attaching script file to the DOM.
 
     <!-- Attaching the chrome-extension-helper script -->
     <script type="text/javascript" src="path/to/library/chrome-extension-helper.js"></script>
@@ -61,9 +61,43 @@ Consume as an AMD
 
 ### Included wrappers
 
+> **Note:** The API is tentative and is very likely to change by a great degree in upcoming versions.
+
 #### Storage
 
-[Coming soon]
+This wrapper around `chrome.storage` includes a couple of methods to make working with Chrome extension storage a little convenient.
+
+    import { initializeStorage, createLocalProperty, createSyncedProperty } from 'chrome-extension-helper';
+
+The first step should be initialization.
+
+    initializeStorage();
+
+Once the initialization is done, local or synced properties can be instantiated. Whether you create a local property or a synced property, the constructor is exactly the same but the difference lies in behavior, which is exactly the difference between `chrome.storage.local` and `chrome.storage.sync` respectively.
+
+Below is an example of how a synced property can be created.
+
+    const colorMode = createSyncedProperty(
+        'color-mode', // Key used in store
+        colorModes, // A set of possible values for the property
+        value => {
+            const bodyDom = document.body;
+
+            bodyDom.className = bodyDom.className
+                .replace(/ (light|dark)/, '')
+                + ` ${value}`;
+
+            document.querySelector('#color-mode').innerText = value;
+        } // A handler to reflect a change on the UI
+    );
+
+The above snippet creates a synced property with the supplied name in store, that can have the specified possible values and a change to the property (locally or from a different extension instance, as this is a synced property) will be automatically reflected on the UI according to the passed handler. The returned property has the following properties/methods attached:
+
+- `name` - The name of the property
+- `values` - An array of possible values for the property
+- `set` - A function that takes in a new value and a callback that is passed with the value when the update is complete
+- `get` - A function that is called with the current value once it is retrieved from storage
+- `load` - A handler that accepts a value and can handle change to the value. Currently, it is used internally to reflect changes on the UI and is not supposed to be used from external code.
 
 ## To-do
 
