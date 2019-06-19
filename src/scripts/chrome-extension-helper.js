@@ -115,3 +115,9 @@ const createGetter = (store, name, possibleValues) =>
             }
         );
     };
+
+export default {
+    initializeStorage,
+    createLocalProperty,
+    createSyncedProperty
+};
