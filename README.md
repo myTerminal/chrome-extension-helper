@@ -15,7 +15,7 @@ A library of constructs for Google Chrome extensions
 
 ## Wrappers
 
-* `chrome.storage.local` & `chrome.storage.sync`
+* Storage: `chrome.storage.local` & `chrome.storage.sync`
 
 ## How to Use
 
@@ -28,7 +28,7 @@ One can use *chrome-extension-helper* directly from a web-page by attaching scri
     
     <!-- Usage -->
     <script type="text/javascript">
-        chromeExtensionHelper.initializeStorage();
+        chromeExtensionHelper.storage.initializeStorage();
     </script>
 
 ### With [Webpack](https://webpack.js.org), [Browserify](http://browserify.org) or [RequireJS](http://requirejs.org)
@@ -47,7 +47,7 @@ or
 
 or
 
-    import { initializeStorage, createLocalProperty, createSyncedProperty } from 'chrome-extension-helper';
+    import { storage } from 'chrome-extension-helper';
 
 Consume as a CommonJS module
 
@@ -67,17 +67,17 @@ Consume as an AMD
 
 This wrapper around `chrome.storage` includes a couple of methods to make working with Chrome extension storage a little convenient.
 
-    import { initializeStorage, createLocalProperty, createSyncedProperty } from 'chrome-extension-helper';
+    import { storage } from 'chrome-extension-helper';
 
 The first step should be initialization.
 
-    initializeStorage();
+    storage.initializeStorage();
 
 Once the initialization is done, local or synced properties can be instantiated. Whether you create a local property or a synced property, the constructor is exactly the same but the difference lies in behavior, which is exactly the difference between `chrome.storage.local` and `chrome.storage.sync` respectively.
 
 Below is an example of how a synced property can be created.
 
-    const colorMode = createSyncedProperty(
+    const colorMode = storage.createSyncedProperty(
         'color-mode', // Key used in store
         colorModes, // A set of possible values for the property
         value => {
