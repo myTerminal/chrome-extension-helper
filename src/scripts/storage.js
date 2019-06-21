@@ -66,7 +66,7 @@ const createProperty = (
     collection
 ) => {
     // Find a known property with the same name
-    const possibleExistingProperties = collection.filter(p => p.name === propertyName).length;
+    const possibleExistingProperties = collection.filter(p => p.name === propertyName);
 
     // If the property exists, return it
     if (possibleExistingProperties.length) {
