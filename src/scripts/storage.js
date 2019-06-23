@@ -79,7 +79,7 @@ const createProperty = (
         values: propertyValues,
         set: createSetter(store, propertyName),
         get: createGetter(store, propertyName, propertyValues),
-        load: loader
+        load: loader || (() => {})
     };
 
     // Add the property to the collection
@@ -111,7 +111,9 @@ const createGetter = (store, name, possibleValues) =>
                 name
             ],
             values => {
-                onDone(values[name] || possibleValues[0]);
+                if (onDone) {
+                    onDone(values[name] || possibleValues[0]);
+                }
             }
         );
     };

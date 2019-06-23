@@ -97,7 +97,7 @@ The above snippet creates a synced property with the supplied name in store, tha
 - `values` - An array of possible values for the property
 - `set` - A function that takes in a new value and a callback that is passed with the value when the update is complete
 - `get` - A function that is called with the current value once it is retrieved from storage
-- `load` - A handler that accepts a value and can handle change to the value. Currently, it is used internally to reflect changes on the UI and is not supposed to be used from external code.
+- `load` (optional) - A handler that accepts a value and can handle change to the value. Currently, it is used internally to reflect changes on the UI and is not supposed to be used from external code.
 
 ## To-do
 
