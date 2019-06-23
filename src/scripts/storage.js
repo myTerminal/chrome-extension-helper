@@ -82,11 +82,16 @@ const createProperty = (
         load: loader || (() => {})
     };
 
+    // Add `read` by composing `get` and `load`
+    property.read = () => {
+        property.get(property.load);
+    };
+
     // Add the property to the collection
     collection.push(property);
 
-    // Try loading reading and loading the property
-    property.get(property.load);
+    // Trigger first read
+    property.read();
 
     // Return the newly created property
     return property;
