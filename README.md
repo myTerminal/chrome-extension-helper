@@ -71,7 +71,9 @@ This wrapper around `chrome.storage` includes a couple of methods to make workin
 
 The first step should be initialization.
 
-    storage.initializeStorage();
+    storage.initializeStorage(onError);
+
+When there is an error accessing storage, the function `onError` is called with a string specifying a reason for the error.
 
 Once the initialization is done, local or synced properties can be instantiated. Whether you create a local property or a synced property, the constructor is exactly the same but the difference lies in behavior, which is exactly the difference between `chrome.storage.local` and `chrome.storage.sync` respectively.
 

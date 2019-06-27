@@ -4,12 +4,19 @@
 const localProperties = [],
     syncedProperties = [];
 
+// Reference to a function to report errors
+let reportError;
+
 // Initializes listener for all known properties
-const initializeStorage = () => {
+const initializeStorage = onError => {
+    // Attach event listeners
     chrome.storage.local.onChanged
         .addListener(getChangedPropertySetLoader(localProperties));
     chrome.storage.sync.onChanged
         .addListener(getChangedPropertySetLoader(syncedProperties));
+
+    // Store reference to the function to report errors
+    reportError = onError;
 };
 
 // Creates a local property
@@ -104,7 +111,16 @@ const createSetter = (store, name) =>
             {
                 [name]: value
             },
-            onDone
+            () => {
+                if (chrome.runtime.lastError) {
+                    // TODO: replace with a method that also works in background
+                    reportError('The supplied text could not be added to stash, most probably because you are out of space. Try deleting a few stash items or saving a smaller item.');
+                }
+
+                if (onDone) {
+                    onDone();
+                }
+            }
         );
     };
 
