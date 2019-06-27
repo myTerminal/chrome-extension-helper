@@ -16,6 +16,7 @@ A library of constructs for Google Chrome extensions
 ## Wrappers
 
 * Storage: `chrome.storage.local` & `chrome.storage.sync`
+* Notifications: `chrome.notifications`
 
 ## How to Use
 
@@ -101,6 +102,28 @@ The above snippet creates a synced property with the supplied name in store, tha
 - `get` - A function that is called with the current value once it is retrieved from storage
 - `load` (optional) - A handler that accepts a value and can handle change to the value. Currently, it is used internally to reflect changes on the UI and is not supposed to be used from external code.
 - `read` - A function that reads the current value of the property and loads it using the loader. Internally, it's as simple as calling a `get` and using the value in a `load`.
+
+### Notifications
+
+This wrapper around `chrome.notifications` currently only includes a single method for being able to create a basic notification with a title, message and an icon.
+
+    import { notifications } from 'chrome-extension-helper';
+
+    const showError = message => {
+        notifications.showSimpleNotification(
+            'error',
+            {
+                iconUrl: 'icons/error.png',
+                title: 'There was an error!',
+                message
+            }
+        );
+    }
+
+Below are the required parameters:
+
+- `id` - This is required to create a notification, could be any unique string
+- An object containing `iconUrl`, `title` and `message`. Due to a limitation, the icon being used needs to be defined in the manifest file as you can see [here](https://github.com/myTerminal/chrome-text-stash/blob/master/src/manifest.json).
 
 ## To-do
 

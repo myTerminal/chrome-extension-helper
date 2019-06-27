@@ -1,6 +1,6 @@
 {
   "name": "chrome-extension-helper",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "A library of constructs for Google Chrome extensions",
   "main": "build/scripts/chrome-extension-helper.js",
   "scripts": {

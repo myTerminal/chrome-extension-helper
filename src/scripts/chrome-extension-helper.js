@@ -1,7 +1,12 @@
 import storage from './storage';
+import notifications from './notifications';
 
-export { storage };
+export {
+    storage,
+    notifications
+};
 
 export default {
-    storage
+    storage,
+    notifications
 };
