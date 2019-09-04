@@ -16,7 +16,7 @@ const clean = new CleanWebpackPlugin([outputDir]);
 module.exports = {
     mode: 'development',
     entry: {
-        [libraryFileName]: './' + sourceDir + '/scripts/' + libraryFileName + '.js'
+        [libraryFileName]: `./${sourceDir}/scripts/${libraryFileName}.js`
     },
     module: {
         rules: [

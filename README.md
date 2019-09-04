@@ -4,6 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dt/chrome-extension-helper.svg)](https://www.npmjs.com/package/chrome-extension-helper)  
 [![Build Status](https://travis-ci.org/myTerminal/chrome-extension-helper.svg?branch=master)](https://travis-ci.org/myTerminal/chrome-extension-helper)
 [![Code Climate](https://codeclimate.com/github/myTerminal/chrome-extension-helper.png)](https://codeclimate.com/github/myTerminal/chrome-extension-helper)
+[![js-myterminal-style](https://img.shields.io/badge/code%20style-myterminal-blue.svg)](https://www.npmjs.com/package/eslint-config/myterminal)
 [![Coverage Status](https://img.shields.io/coveralls/myTerminal/chrome-extension-helper.svg)](https://coveralls.io/r/myTerminal/chrome-extension-helper?branch=master)  
 [![Dependency Status](https://david-dm.org/myTerminal/chrome-extension-helper.svg)](https://david-dm.org/myTerminal/chrome-extension-helper)
 [![devDependency Status](https://david-dm.org/myTerminal/chrome-extension-helper/dev-status.svg)](https://david-dm.org/myTerminal/chrome-extension-helper#info=devDependencies)
