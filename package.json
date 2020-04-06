@@ -3,6 +3,9 @@
   "version": "0.13.1",
   "description": "A library of constructs for Google Chrome extensions",
   "main": "build/scripts/chrome-extension-helper.js",
+  "files": [
+    "/build"
+  ],
   "scripts": {
     "debug": "webpack --config webpack.dev.js",
     "develop": "webpack --config webpack.dev.js --watch",
