@@ -7,6 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/myTerminal/chrome-extension-helper.png)](https://codeclimate.com/github/myTerminal/chrome-extension-helper)
 [![js-myterminal-style](https://img.shields.io/badge/code%20style-myterminal-blue.svg)](https://www.npmjs.com/package/eslint-config/myterminal)
 [![Coverage Status](https://img.shields.io/coveralls/myTerminal/chrome-extension-helper.svg)](https://coveralls.io/r/myTerminal/chrome-extension-helper?branch=master)  
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y5E5GL7)  
 [![NPM](https://nodei.co/npm/chrome-extension-helper.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/chrome-extension-helper/)
 
 A library of constructs for Google Chrome extensions
